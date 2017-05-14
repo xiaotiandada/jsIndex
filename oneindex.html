@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>js</title>
+	<style type="text/css">
+		#center{
+			width: 300px;
+			height: 300px;
+			margin: 0 auto;
+			text-align: center;
+		}
+		#content{
+			width: 300px;
+			height: 300px;
+			background: #000;
+			margin: 10px auto;
+			display: block;
+		}
+	</style>
+</head>
+<body>
+<div id="center">
+	<input type="button" name="" value="变宽">
+	<input type="button" name="" value="变高">
+	<input type="button" name="" value="变色">
+	<input type="button" name="" value="隐藏">
+	<input type="button" name="" value="重置">
+
+	<div id="content"></div>
+</div>
+
+
+<script>
+	var oBtn = document.getElementsByTagName('input');
+	var oDiv = document.getElementById('content');
+	var oAtt = ['width','height','background','display','display'];
+	var oVal = ['400px','400px','red','none','block'];
+
+	for (var i = 0; i < oBtn.length; i++) {
+		//自定义索引值
+		oBtn[i].index = i;
+		oBtn[i].onclick = function(){
+			//按钮的最后一个重置 等于oDiv的组后一个 并且设置样式等于空
+			this.index == oBtn.length-1 && (oDiv.style.cssText = '');
+			//调用函数 传递参数 元素 属性 值
+			changeStyle(oDiv, oAtt[this.index], oVal[this.index]);
+
+		};
+	}
+	function changeStyle(elem, attr, value){
+		//元素的样式的属性等于传递的值
+		elem.style[attr]= value;
+	}
+</script>
+</body>
+</html>
