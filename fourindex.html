@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>jsDIV</title>
+	<style type="text/css">
+		#divCenter{
+			width: 630px;
+			height: 200px;
+			margin: 0 auto;
+		}
+		#divCenter div{
+			width: 200px;
+			height: 200px;
+			background: #000000;
+			float: left;
+			margin: 0 auto 0 10px;
+		}
+		p{
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+
+<p><input type="button" name="" value="变色"></p>
+
+
+<div id="divCenter">
+	<div></div>
+	<div></div>
+	<div></div>
+</div>
+
+<script>
+	var oInput = document.getElementsByTagName('input')[0];
+	var oDiv = document.getElementById('divCenter').getElementsByTagName('div');
+
+	oInput.onclick =function(){
+		for (var i = 0; i < oDiv.length; i++) {
+			oDiv[i].style.background="red";
+		}
+	}
+</script>
+</body>
+</html>
